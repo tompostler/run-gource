@@ -28,3 +28,9 @@ that needs to be run as the root user (generally using `sudo`).
     # make install
     
     # apt install xvfb xfonts-base xfonts-75dpi xfonts-100dpi xfonts-cyrillic libavcodec-extra
+
+## Execution
+
+A sample invocation chaining the two programs together:
+
+    $ xvfb-run -a -s "-screen 0 1920x1080x24" gource -1920x1080 --stop-at-end --auto-skip-seconds 2 --seconds-per-day 0.25 --file-idle-time 0 --background-colour 000000 --title "Repo Name" --font-size 16 --key --user-image-dir .git/avatars/ --hide mouse,progress --output-ppm-stream - --output-framerate 30 | ffmpeg -y -r 30 -f image2pipe -vcodec ppm -i - -vcodec libx264 -preset medium -pix_fmt yuv420p -crf 20 -threads 0 -bf 0 /path/to/output/file.mp4 
