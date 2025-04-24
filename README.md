@@ -10,10 +10,10 @@ In order to get gource, xvfb, and ffmpeg installed, follow the following steps.
 `$` denotes a command that can be run as the local user.
 `#` denotes a command that needs to be run as the root user (generally using `sudo`).
     
-    $ git clone git@github.com:tompostler/run-gource.git
+    $ git clone https://github.com/tompostler/run-gource.git
     $ git submodule update --init --recursive
 
-    # apt install build-essential libx264-dev libx265-dev libnuma-dev pkg-config yasm
+    # apt install build-essential libx264-dev libx265-dev libnuma-dev pkg-config yasm nasm
     
     $ cd ffmpeg/
     $ ./configure --enable-gpl --enable-libx264 --enable-libx265
